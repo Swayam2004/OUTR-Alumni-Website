@@ -1,6 +1,1 @@
-{
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^4.21.1"
-  }
-}
+{"scripts":{"start":"vite"},"dependencies":{"ejs":"^3.1.10","express":"^4.21.1"},"devDependencies":{"autoprefixer":"^10.4.20","postcss":"^8.4.47","tailwindcss":"^3.4.13","vite":"^5.4.9"},"name":"outr-alumni-website-abhi_br","version":"1.0.0","main":"postcss.config.js","keywords":[],"author":"","license":"ISC","description":""}
