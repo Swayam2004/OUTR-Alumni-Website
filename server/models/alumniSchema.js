@@ -8,7 +8,7 @@ const alumniSchema = new mongoose.Schema({
   batch: String,
   branch: String,
   company: String,
-  linkedin: String,
+  linkedIn: String,
   image: String,  // New field for the image URL
 });
 

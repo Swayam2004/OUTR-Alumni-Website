@@ -28,16 +28,19 @@
         class="px-4 py-3 border border-gray-300 rounded-full shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full max-w-xs hover:shadow-lg hover:bg-gray-100 transform"
       >
         <option value="">All Batches</option>
-        <option value="2020">2020</option>
-        <option value="2019">2019</option>
+        <option value="2021-2025">2021-2025</option>
+        <option value="2020-2024">2020-2024</option>
       </select>
       <select
         id="filter-branch"
         class="px-4 py-3 border border-gray-300 rounded-full shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full max-w-xs hover:shadow-lg transform"
       >
         <option value="">All Branches</option>
-        <option value="Computer Science">Computer Science</option>
+        <option value="Computer Science Engineering">Computer Science Engineering </option>
         <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Civil Engineering">Civil Engineering</option>
       </select>
       <button
         id="apply-filters"
@@ -139,12 +142,12 @@
         const alumni = alumniList.find(a => a._id === alumniId);
         if (alumni) {
           document.getElementById('alumni-name').textContent = alumni.name;
-          document.getElementById('alumni-age').textContent = 'Age: ' + alumni.age;
-          document.getElementById('alumni-gender').textContent = 'Gender: ' + alumni.gender;
+          // document.getElementById('alumni-age').textContent = 'Age: ' + alumni.age;
+          // document.getElementById('alumni-gender').textContent = 'Gender: ' + alumni.gender;
           document.getElementById('alumni-batch').textContent = 'Batch: ' + alumni.batch;
           document.getElementById('alumni-branch').textContent = 'Branch: ' + alumni.branch;
           document.getElementById('alumni-company').textContent = 'Company: ' + alumni.company;
-          document.getElementById('alumni-linkedin').setAttribute('href', alumni.linkedin);
+          document.getElementById('alumni-linkedin').setAttribute('href', alumni.linkedIn);
 
           // Set the alumni image
           document.getElementById('alumni-image').setAttribute('src', alumni.image);
@@ -204,7 +207,7 @@
                   <p class="text-gray-600"><strong>Batch:</strong> ${alumni.batch}</p>
                   <p class="text-gray-600"><strong>Branch:</strong> ${alumni.branch}</p>
                   <p class="text-gray-600"><strong>Company:</strong> ${alumni.company}</p>
-                  <a href="${alumni.linkedin}" target="_blank" class="text-blue-500 mt-2 block hover:text-blue-900">LinkedIn Profile</a>
+                  <a href="${alumni.linkedIn}" target="_blank" class="text-blue-500 mt-2 block hover:text-blue-900">LinkedIn Profile</a>
                   <button onclick="showAlumniDetails('${alumni._id}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
 
               </div>
