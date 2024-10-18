@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alumni Directory</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-[#efece5]">
@@ -16,11 +21,11 @@
         type="text"
         id="search-name"
         placeholder="Search by name..."
-        class="px-4 py-2 border rounded-lg shadow-sm w-full max-w-xs"
+        class="px-4 py-3 border border-gray-300 rounded-full shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full max-w-xs hover:shadow-lg transform"
       />
       <select
         id="filter-batch"
-        class="px-4 py-2 border rounded-lg shadow-sm w-full max-w-xs"
+        class="px-4 py-3 border border-gray-300 rounded-full shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full max-w-xs hover:shadow-lg hover:bg-gray-100 transform"
       >
         <option value="">All Batches</option>
         <option value="2020">2020</option>
@@ -28,7 +33,7 @@
       </select>
       <select
         id="filter-branch"
-        class="px-4 py-2 border rounded-lg shadow-sm w-full max-w-xs"
+        class="px-4 py-3 border border-gray-300 rounded-full shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full max-w-xs hover:shadow-lg transform"
       >
         <option value="">All Branches</option>
         <option value="Computer Science">Computer Science</option>
@@ -36,7 +41,7 @@
       </select>
       <button
         id="apply-filters"
-        class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition"
+        class="bg-blue-500 text-white px-6 py-3 rounded-full shadow-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:scale-105 transform focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
         Apply Filters
       </button>
@@ -44,10 +49,9 @@
 
     <!-- Alumni Cards Section -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 px-6 "
+      class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 px-6"
       id="alumni-cards"
     >
-    
       <% alumniList.forEach(alumni => { %>
       <!-- <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition duration-300">
         <img src="<%= alumni.image %>" alt="<%= alumni.name %>" class="rounded-md w-full h-48 object-cover mb-4">
@@ -59,7 +63,7 @@
         <button onclick="showAlumniDetails('<%= alumni._id %>')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
       </div> -->
 
-      <figure
+      <!-- <figure
         class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800"
       >
         <img
@@ -84,7 +88,7 @@
             </div>
           </figcaption>
         </div>
-      </figure>
+      </figure> -->
 
       <% }) %>
     </div>
@@ -94,14 +98,27 @@
       id="alumni-modal"
       class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden"
     >
-      <div class="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
-        <span class="text-red-500 text-2xl cursor-pointer close">&times;</span>
-        <h3 id="alumni-name" class="text-2xl font-semibold mt-4"></h3>
+      <div class="bg-white rounded-lg shadow-lg p-6 w-96 text-center relative">
+        <span
+          class="text-red-500 text-2xl cursor-pointer absolute top-4 right-4 close"
+          >&times;</span
+        >
+
+        <!-- Modal Image -->
+        <img
+          id="alumni-image"
+          src=""
+          alt="Alumni Image"
+          class="rounded-full w-24 h-24 mx-auto mb-4 border-2 border-blue-500 shadow-lg"
+        />
+
+        <h3 id="alumni-name" class="text-2xl font-semibold mt-2"></h3>
         <p id="alumni-age" class="text-gray-600"></p>
         <p id="alumni-gender" class="text-gray-600"></p>
         <p id="alumni-batch" class="text-gray-600"></p>
         <p id="alumni-branch" class="text-gray-600"></p>
         <p id="alumni-company" class="text-gray-600"></p>
+
         <a
           id="alumni-linkedin"
           href="#"
@@ -116,9 +133,9 @@
 
     <%- include("partials/footer.ejs") %>
     <script>
-      const alumniList = <%- JSON.stringify(alumniList) %>;
+            const alumniList = <%- JSON.stringify(alumniList) %>;
 
-      function showAlumniDetails(alumniId) {
+            function showAlumniDetails(alumniId) {
         const alumni = alumniList.find(a => a._id === alumniId);
         if (alumni) {
           document.getElementById('alumni-name').textContent = alumni.name;
@@ -129,70 +146,82 @@
           document.getElementById('alumni-company').textContent = 'Company: ' + alumni.company;
           document.getElementById('alumni-linkedin').setAttribute('href', alumni.linkedin);
 
+          // Set the alumni image
+          document.getElementById('alumni-image').setAttribute('src', alumni.image);
+
           document.getElementById('alumni-modal').classList.remove('hidden');
         }
       }
 
-      document.querySelector('.close').addEventListener('click', function() {
-        document.getElementById('alumni-modal').classList.add('hidden');
-      });
 
-      // Filtering logic
-      document.getElementById('apply-filters').addEventListener('click', function() {
-        const searchName = document.getElementById('search-name').value.toLowerCase();
-        const filterBatch = document.getElementById('filter-batch').value;
-        const filterBranch = document.getElementById('filter-branch').value;
+            document.querySelector('.close').addEventListener('click', function() {
+              document.getElementById('alumni-modal').classList.add('hidden');
+            });
 
-        const filteredAlumni = alumniList.filter(alumni => {
-          const matchesName = alumni.name.toLowerCase().includes(searchName);
-          const matchesBatch = !filterBatch || alumni.batch === filterBatch;
-          const matchesBranch = !filterBranch || alumni.branch === filterBranch;
+            // Filtering logic
+            document.getElementById('apply-filters').addEventListener('click', function() {
+              const searchName = document.getElementById('search-name').value.toLowerCase();
+              const filterBatch = document.getElementById('filter-batch').value;
+              const filterBranch = document.getElementById('filter-branch').value;
 
-          return matchesName && matchesBatch && matchesBranch;
-        });
+              const filteredAlumni = alumniList.filter(alumni => {
+                const matchesName = alumni.name.toLowerCase().includes(searchName);
+                const matchesBatch = !filterBatch || alumni.batch === filterBatch;
+                const matchesBranch = !filterBranch || alumni.branch === filterBranch;
 
-        renderAlumniCards(filteredAlumni);
-      });
+                return matchesName && matchesBatch && matchesBranch;
+              });
 
-      function renderAlumniCards(alumniArray) {
-        const alumniCardsContainer = document.getElementById('alumni-cards');
-        alumniCardsContainer.innerHTML = '';
+              renderAlumniCards(filteredAlumni);
+            });
 
-        alumniArray.forEach(alumni => {
-          // const cardHTML = `
-          //   <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition duration-300">
-          //     <img src="${alumni.image}" alt="${alumni.name}" class="rounded-md w-full h-48 object-cover mb-4">
-          //     <h3 class="text-xl font-semibold mt-2">${alumni.name}</h3>
-          //     <p class="text-gray-600">Batch: ${alumni.batch}</p>
-          //     <p class="text-gray-600">Branch: ${alumni.branch}</p>
-          //     <p class="text-gray-600">Company: ${alumni.company}</p>
-          //     <a href="${alumni.linkedin}" target="_blank" class="text-blue-500 mt-2 block hover:underline">LinkedIn Profile</a>
-          //     <button onclick="showAlumniDetails('${alumni._id}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
-          //   </div>
-          // `;
+            function renderAlumniCards(alumniArray) {
+              const alumniCardsContainer = document.getElementById('alumni-cards');
+              alumniCardsContainer.innerHTML = '';
 
-          const cardHTML = `<figure class="lg:flex drop-shadow-lg lg:items-center bg-slate-100 rounded-xl p-8 lg:p-0 dark:bg-white lg:w">
-          <img class="w-24 h-24 lg:w-48 lg:h-48 lg:ml-8 drop-shadow-lg rounded-full mx-auto" src="${alumni.image}" alt="${alumni.name}" width="384" height="512">
-          <div class="pt-6 lg:p-8 text-center lg:text-left space-y-1 ">
-            <figcaption class="font-medium">
-              <div class="text-sky-500 dark:text-sky-400 font-medium text-xl">
-                ${alumni.name}
+              alumniArray.forEach(alumni => {
+                // const cardHTML = `
+                //   <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition duration-300">
+                //     <img src="${alumni.image}" alt="${alumni.name}" class="rounded-md w-full h-48 object-cover mb-4">
+                //     <h3 class="text-xl font-semibold mt-2">${alumni.name}</h3>
+                //     <p class="text-gray-600">Batch: ${alumni.batch}</p>
+                //     <p class="text-gray-600">Branch: ${alumni.branch}</p>
+                //     <p class="text-gray-600">Company: ${alumni.company}</p>
+                //     <a href="${alumni.linkedin}" target="_blank" class="text-blue-500 mt-2 block hover:underline">LinkedIn Profile</a>
+                //     <button onclick="showAlumniDetails('${alumni._id}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
+                //   </div>
+                // `;
+
+                const cardHTML = `<div data-aos="fade-up-right" >
+            <figure  class="lg:flex drop-shadow-lg lg:items-center bg-slate-100 rounded-xl p-8 lg:p-0 dark:bg-white lg:w transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl" >
+              <img class="w-24 h-24 lg:w-48 lg:h-48 lg:ml-8 drop-shadow-lg rounded-full mx-auto transition-transform hover:scale-110" src="${alumni.image}" alt="${alumni.name}" width="384" height="512">
+              <div  class="pt-6 lg:p-8 text-center lg:text-left space-y-1 ">
+                <figcaption class="font-medium">
+                  <div class="text-sky-500 dark:text-sky-400 font-medium text-xl">
+                    ${alumni.name}
+                  </div>
+                </figcaption>
+                  <p class="text-gray-600"><strong>Batch:</strong> ${alumni.batch}</p>
+                  <p class="text-gray-600"><strong>Branch:</strong> ${alumni.branch}</p>
+                  <p class="text-gray-600"><strong>Company:</strong> ${alumni.company}</p>
+                  <a href="${alumni.linkedin}" target="_blank" class="text-blue-500 mt-2 block hover:text-blue-900">LinkedIn Profile</a>
+                  <button onclick="showAlumniDetails('${alumni._id}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
+
               </div>
-            </figcaption>
-              <p class="text-gray-600"><strong>Batch:</strong> ${alumni.batch}</p>
-              <p class="text-gray-600"><strong>Branch:</strong> ${alumni.branch}</p>
-              <p class="text-gray-600"><strong>Company:</strong> ${alumni.company}</p>
-              <a href="${alumni.linkedin}" target="_blank" class="text-blue-500 mt-2 block hover:text-blue-900">LinkedIn Profile</a>
-              <button onclick="showAlumniDetails('${alumni._id}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 transition">View Details</button>
-            
-          </div>
-        </figure>`;
-          alumniCardsContainer.innerHTML += cardHTML;
-        });
-      }
+            </figure>
+           </div>`;
+                alumniCardsContainer.innerHTML += cardHTML;
+              });
+            }
 
-      // Initially render all alumni
-      renderAlumniCards(alumniList);
+
+
+            // Initially render all alumni
+            renderAlumniCards(alumniList);
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>
