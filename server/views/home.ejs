@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css"
+  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://kit.fontawesome.com/2af254fe4c.js"
@@ -42,7 +47,9 @@
     </div>
 
     <div class="p-16 flex flex-col gap-24 lg:flex-row items-center">
-      <div
+
+
+      <div data-aos="fade-right"
         class="h-96 w-full bg-white flex flex-col gap-2.5 justify-center items-center border-b-8 border-blue-800"
       >
         <i class="fa-regular fa-calendar-days text-blue-800 text-5xl"></i>
@@ -56,7 +63,8 @@
           </button>
         </div>
       </div>
-      <div
+
+      <div data-aos="fade-up"
         class="h-96 w-full bg-white flex flex-col gap-2.5 justify-center items-center border-b-8 border-blue-800"
       >
         <i class="fa-solid fa-sheet-plastic text-blue-800 text-5xl"></i>
@@ -70,7 +78,8 @@
           </button>
         </div>
       </div>
-      <div
+
+      <div data-aos="fade-left"
         class="h-96 w-full bg-white flex flex-col gap-2.5 justify-center items-center border-b-8 border-blue-800"
       >
         <i class="fa-solid fa-church text-blue-800 text-6xl"></i>
@@ -86,6 +95,8 @@
           </button>
         </div>
       </div>
+
+
     </div>
 
     <!-- ABHISHEK's SECTION -->
@@ -101,13 +112,13 @@
               <div class="flex flex-col items-center gap-y-4">
                 <div class="h-1 w-24 bg-blue-800 md:hidden"></div>
                 <div class="flex flex-row md:flex-col">
-                  <p class="font-serif font-bold text-blue-900 text-4xl">
+                  <p class="font-serif font-bold text-blue-900 text-4xl" data-aos="fade-right" ata-aos-anchor-placement="left-right">
                     Read.
                   </p>
-                  <p class="font-serif font-bold text-blue-900 text-4xl">
+                  <p class="font-serif font-bold text-blue-900 text-4xl" data-aos="fade-right" data-aos-delay="100">
                     Watch.
                   </p>
-                  <p class="font-serif font-bold text-blue-900 text-4xl">
+                  <p class="font-serif font-bold text-blue-900 text-4xl" data-aos="fade-right" data-aos-delay="200">
                     Listen.
                   </p>
                 </div>
@@ -115,7 +126,7 @@
               <div class="flex justify-center items-center md:px-20">
                 <div class="h-24 w-1 bg-slate-400 hidden md:block"></div>
                 <p
-                  class="text-md italic flex justify-center py-2 px-24 md:px-8 text-center md:text-start lg:text-xl"
+                  class="text-md italic flex justify-center py-2 px-24 md:px-8 text-center md:text-start lg:text-xl" data-aos="fade-in" data-aos-delay="200"
                 >
                   Stories that showcase lives of "usefulness and reputation,
                   "OUTR's impact on the world and more
@@ -125,7 +136,7 @@
             <div
               class="w-full md:w-[704px] lg:w-full mx-auto flex flex-col lg:flex-row-reverse justify-center lg:justify-start gap-y-4"
             >
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col gap-y-4 bg-[#efece5]">
                 <img class="w-full" src="img/head-image.png" alt="" />
                 <div class="w-full flex flex-col">
                   <p>December 06,2023</p>
@@ -149,7 +160,7 @@
                       alt="Alumni Image"
                     />
                     <p class="text-blue-800">Alumni & Friends</p>
-                    <p>ANNUAL ALUMNI MEET 2023</p>
+                    <p>ANNUAL ALUMNI MEET 2023</p> 
                   </div>
                   <div>
                     <img class="w-full" src="img/image3.jpg" alt="" />
@@ -177,19 +188,19 @@
               <div class="mt-8 w-full flex flex-col gap-y-4">
                 <div class="lg:mr-8">
                   <div
-                    class="border-gray-800 py-4 border-t flex items-center gap-x-2"
+                    class="border-gray-800 py-4 border-t flex items-center gap-x-2" data-aos="fade-right"
                   >
                     <i class="fa-solid fa-arrow-right"></i>
                     <p class="font-semibold">Alumni Stories</p>
                   </div>
                   <div
-                    class="border-gray-800 py-4 border-t flex items-center gap-x-2"
+                    class="border-gray-800 py-4 border-t flex items-center gap-x-2" data-aos="fade-right" data-aos-delay="100"
                   >
                     <i class="fa-solid fa-arrow-right"></i>
                     <p class="font-semibold">Giving Stories</p>
                   </div>
                   <div
-                    class="border-gray-800 py-4 border-t flex items-center gap-x-2"
+                    class="border-gray-800 py-4 border-t flex items-center gap-x-2" data-aos="fade-right" data-aos-delay="200"
                   >
                     <i class="fa-solid fa-arrow-right"></i>
                     <p class="font-semibold">Campus News</p>
@@ -243,25 +254,25 @@
       class="mt-10 grid grid-cols-2 gap-y-4 lg:grid-cols-4 mx-auto w-full mb-10 text-xl text-blue-800"
       id="features"
     >
-      <div class="flex justify-center">
+      <div class="flex justify-center"  data-aos="fade-right">
         <p class="border-b border-blue-800">
           Alumni Directory
           <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
         </p>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center" data-aos="fade-right" data-aos-delay="100">
         <p class="border-b border-blue-800">
           OUTRConnect+
           <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
         </p>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
         <p class="border-b border-blue-800">
           Library Resources
           <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
         </p>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center" data-aos="fade-right" data-aos-delay="300">
         <p class="border-b border-blue-800">
           Career Resources
           <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
@@ -306,7 +317,7 @@
         id="clubs"
         class="grid grid-cols-2 gap-x-4 gap-y-4 w-full mx-auto mt-4"
       >
-        <div id="zairza" class="w-full flex flex-wrap flex-col mx-auto">
+        <div id="zairza" class="w-full flex flex-wrap flex-col mx-auto" data-aos="fade-up">
           <img
             src="img/zairza.png"
             alt="zairza"
@@ -314,7 +325,7 @@
           />
           <p id="zairza-text" class="text-lg font-semibold">Zairza</p>
         </div>
-        <div id="energy" class="w-full flex-wrap flex-col mx-auto">
+        <div id="energy" class="w-full flex-wrap flex-col mx-auto" data-aos="fade-up">
           <img
             src="img/energy.png"
             alt="energy"
@@ -322,7 +333,7 @@
           />
           <p id="energy-text" class="text-lg font-semibold">Energy</p>
         </div>
-        <div id="aerospace" class="w-full flex flex-wrap flex-col mx-auto">
+        <div id="aerospace" class="w-full flex flex-wrap flex-col mx-auto" data-aos="fade-up"> 
           <img
             src="img/aerospace.png"
             alt="aerospace"
@@ -330,7 +341,7 @@
           />
           <p id="aerospace-text" class="text-lg font-semibold">Aerospace</p>
         </div>
-        <div id="cetadel" class="w-full flex flex-wrap flex-col mx-auto">
+        <div id="cetadel" class="w-full flex flex-wrap flex-col mx-auto" data-aos="fade-up">
           <img
             src="img/cetadel.png"
             alt="cetadel"
@@ -344,7 +355,7 @@
 
     <div class="mx-20 mb-10 flex justify-center items-center">
       <div
-        class="h-[80vw] w-full max-h-[600px] max-w-[600px] p-8 bg-blue-800 rounded-3xl"
+        class="h-[80vw] w-full max-h-[600px] max-w-[600px] p-4 bg-blue-800 rounded-3xl"
       >
         <div
           class="h-full w-full p-4 rounded-xl flex justify-center items-center"
@@ -355,7 +366,7 @@
           "
         >
           <button
-            class="mx-10 px-5 py-4 bg-blue-800 text-white font-bold hover:bg-indigo-900"
+            class="mx-10 px-5 py-4 bg-blue-800 text-white font-bold hover:bg-indigo-900 "
             onclick="goToAlmaMater()"
           >
             Find your Alma-Mater
@@ -521,5 +532,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
