@@ -1,0 +1,80 @@
+<%- include("partials/header.ejs") %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Odisha University Alumni</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-[#efece5]">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">About Us</h1>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-6" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg text-center mb-4">
+        Welcome to the Alumni Association of Odisha University of Technology and Research. Our mission is to create a vibrant network of alumni, foster connections, and support each other's professional growth.
+      </p>
+      <div class="flex justify-center mb-4">
+        <img src="img/college.jpg" alt="University Campus" class="rounded-lg shadow-lg">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-2xl font-semibold mb-2">Our Vision</h2>
+        <p class="text-md">
+          To empower our alumni through continuous engagement, ensuring they have the resources and support needed to succeed in their respective fields.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="text-2xl font-semibold mb-2">Our Mission</h2>
+        <p class="text-md">
+          We strive to cultivate a strong alumni community that contributes to the growth of the university and its members by sharing knowledge, networking opportunities, and mentorship.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="text-2xl font-semibold mb-2">Join Us!</h2>
+        <p class="text-md">
+          If you are an alumnus, we invite you to register and become part of our community. Together, we can build a brighter future for all alumni of Odisha University of Technology and Research.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-xl font-bold mb-2">Connect with Us</h3>
+        <p>If you have any questions, feel free to reach out to us:</p>
+        <ul class="mt-2 text-gray-600">
+          <li>Email: alumni@OUTR.edu</li>
+          <li>Phone: +91 12345 67890</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Full Width Social Media Section -->
+    <div class="bg-blue-500 mt-12 py-8" data-aos="fade-up" data-aos-delay="600">
+      <h3 class="text-2xl font-bold text-white text-center mb-6">Follow Us on Social Media</h3>
+      <div class="flex justify-center space-x-6 text-3xl text-white">
+        <a href="#" class="transform transition hover:scale-125 hover:text-gray-200" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" class="transform transition hover:scale-125 hover:text-gray-200" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="transform transition hover:scale-125 hover:text-gray-200" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="transform transition hover:scale-125 hover:text-gray-200" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+<%- include("partials/footer.ejs") %>
