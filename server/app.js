@@ -165,6 +165,10 @@ app.get("/logout", (req, res) => {
 app.get("/test", (req, res) => {
   res.render("test");
 });
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
 
 app.listen(4000, () => {
   console.log("listening on port 4000");
